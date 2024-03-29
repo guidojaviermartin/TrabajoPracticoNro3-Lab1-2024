@@ -262,7 +262,7 @@ String jt1, jt2;
     private void jbVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerificarActionPerformed
         // TODO add your handling code here:
         
-        
+        //
             jt1 = jtCorreo.getText();
             jt2 = jpPass.getText();
             ControlMail control1 = new ControlMail(jt1);
