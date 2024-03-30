@@ -112,6 +112,11 @@ String jt1, jt2;
                 jpPassActionPerformed(evt);
             }
         });
+        jpPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jpPassKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpInternoLayout = new javax.swing.GroupLayout(jpInterno);
         jpInterno.setLayout(jpInternoLayout);
@@ -266,21 +271,26 @@ String jt1, jt2;
             jt1 = jtCorreo.getText();
             jt2 = jpPass.getText();
             ControlMail control1 = new ControlMail(jt1);
-            if(control1.verificaMail(jt1)){
-                JOptionPane.showMessageDialog(this, "El correo ingresado es Correcto!!!");
-            }else{
-                JOptionPane.showMessageDialog(this, "*** Error: 'Correo incorrecto ***");
-            }
-            //        if(jt1.equals("")|| jt1.equals("ejemplo@ejemplo.com")||jt2.equals("")||jt2.equals("**********")){
-                //            JOptionPane.showMessageDialog(this, "*** Error: 'Usuario y/o Contraseña' vacios ***");
-                //            jtCorreo.setText("");
-                //            jpPass.setText("");
-                //        }
+            if(jt1.equals("")|| jt1.equals("ejemplo@ejemplo.com")||jt2.equals("")||jt2.equals("**********")){
+                JOptionPane.showMessageDialog(this, "*** Error: 'Usuario y/o Contraseña' vacios ***");
+                jtCorreo.setText("");
+                jpPass.setText("");
+                }else{
+                        if(control1.verificaMail(jt1)){
+                            JOptionPane.showMessageDialog(this, "El correo ingresado es Correcto!!!");
+                        }else{
+                            JOptionPane.showMessageDialog(this, "*** Error: 'Correo incorrecto ***");
+                        }
+            }        
+            //        
             
     }//GEN-LAST:event_jbVerificarActionPerformed
 
     private void jtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCorreoKeyTyped
         // TODO add your handling code here:
+        if(!Character.isLetterOrDigit(evt.getKeyChar())  && !(evt.getKeyChar() == '@') && !(evt.getKeyChar() == '.') && !(evt.getKeyChar() == '-') && !(evt.getKeyChar() == '_')){
+            evt.consume();
+        }
     }//GEN-LAST:event_jtCorreoKeyTyped
 
     private void jtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCorreoActionPerformed
@@ -309,6 +319,10 @@ String jt1, jt2;
     private void jtCorreoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jtCorreoComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jtCorreoComponentAdded
+
+    private void jpPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpPassKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jpPassKeyTyped
 
     /**
      * @param args the command line arguments

@@ -27,20 +27,21 @@ public class ControlMail {
     }
     
     public boolean verificaMail(String mail1){
-       int arroba = 0;
+       int arroba = 0, charEspecial = 0;
        boolean punto= false;
        for(int i=0;i<mail1.length();i++){
            if(mail1.charAt(i) == '@'){
-                arroba++;   
-               
+                arroba++;       
            }
            if(mail1.charAt(i) == '.'){
                punto=true;
            }
-            
+            if(mail1.charAt(i) == 'ñ'){
+                charEspecial++;       
+           }
        }
-       System.out.println("*** encontro el arroba: "+arroba +" veces");
-       System.out.println("*** encontro el punto: "+punto);
-       return punto&&(arroba>0&&arroba<2);
+//       System.out.println("*** encontro el arroba: "+arroba +" veces");
+//       System.out.println("*** encontro el punto: "+punto);
+       return punto&&(arroba>0&&arroba<2)&&charEspecial==0;
     }
 }
