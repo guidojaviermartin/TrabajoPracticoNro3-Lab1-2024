@@ -266,24 +266,21 @@ String jt1, jt2;
 
     private void jbVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerificarActionPerformed
         // TODO add your handling code here:
-        
-        //
             jt1 = jtCorreo.getText();
             jt2 = jpPass.getText();
-            ControlMail control1 = new ControlMail(jt1);
+            ControlMail control1 = new ControlMail();
             if(jt1.equals("")|| jt1.equals("ejemplo@ejemplo.com")||jt2.equals("")||jt2.equals("**********")){
                 JOptionPane.showMessageDialog(this, "*** Error: 'Usuario y/o Contraseña' vacios ***");
                 jtCorreo.setText("");
                 jpPass.setText("");
-                }else{
-                        if(control1.verificaMail(jt1)){
-                            JOptionPane.showMessageDialog(this, "El correo ingresado es Correcto!!!");
-                        }else{
-                            JOptionPane.showMessageDialog(this, "*** Error: 'Correo incorrecto ***");
-                        }
+            }else{
+                 if(control1.verificaMail(jt1)){
+                 JOptionPane.showMessageDialog(this, "El correo ingresado es Correcto!!!");
+                 }else{
+                      JOptionPane.showMessageDialog(this, "*** Error: 'Correo incorrecto ***");
+                 }
             }        
-            //        
-            
+        
     }//GEN-LAST:event_jbVerificarActionPerformed
 
     private void jtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCorreoKeyTyped
