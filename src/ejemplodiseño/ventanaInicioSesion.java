@@ -266,7 +266,11 @@ String jt1, jt2;
             jt1 = jtCorreo.getText();
             jt2 = jpPass.getText();
             ControlMail control1 = new ControlMail(jt1);
-            
+            if(control1.verificaMail(jt1)){
+                JOptionPane.showMessageDialog(this, "El correo ingresado es Correcto!!!");
+            }else{
+                JOptionPane.showMessageDialog(this, "*** Error: 'Correo incorrecto ***");
+            }
             //        if(jt1.equals("")|| jt1.equals("ejemplo@ejemplo.com")||jt2.equals("")||jt2.equals("**********")){
                 //            JOptionPane.showMessageDialog(this, "*** Error: 'Usuario y/o Contraseña' vacios ***");
                 //            jtCorreo.setText("");
@@ -343,10 +347,10 @@ String jt1, jt2;
     }
 public void enviarMensajeDeError(){
     if(jt1.equals("")|| jt1.equals("ejemplo@ejemplo.com")||jt2.equals("")||jt2.equals("**********")){
-                            JOptionPane.showMessageDialog(this, "*** Error: 'Usuario y/o Contraseña' vacios ***");
-                            jtCorreo.setText("");
-                            jpPass.setText("");
-                        }
+        JOptionPane.showMessageDialog(this, "*** Error: 'Usuario y/o Contraseña' vacios ***");
+        jtCorreo.setText("");
+        jpPass.setText("");
+    }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
