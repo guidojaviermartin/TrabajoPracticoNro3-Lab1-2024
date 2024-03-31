@@ -1,5 +1,5 @@
 
-package TrabajoPracticoN3;
+package TrabajoPracticoNro3;
 
 /**
  *
