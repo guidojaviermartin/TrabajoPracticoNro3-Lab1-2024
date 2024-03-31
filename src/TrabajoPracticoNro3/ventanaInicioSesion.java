@@ -1,9 +1,11 @@
 package TrabajoPracticoNro3;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class ventanaInicioSesion extends javax.swing.JFrame {
 String jt1, jt2;
+int mayuscula = 0, charEsp = 0;
     public ventanaInicioSesion() {
         initComponents();
         
@@ -280,7 +282,12 @@ String jt1, jt2;
                       JOptionPane.showMessageDialog(this, "*** Error: 'Correo incorrecto ***");
                  }
             }        
-        
+            ValidarPass validarPass1 = new ValidarPass();
+            if(validarPass1.validar(mayuscula)){
+                JOptionPane.showMessageDialog(this, "La contraseña ingresada es Correcta!!!");
+            }else{
+                JOptionPane.showMessageDialog(this, "Error La contraseña ingresada debe tener 1 Mayuscula ");
+            }
     }//GEN-LAST:event_jbVerificarActionPerformed
 
     private void jtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCorreoKeyTyped
@@ -319,6 +326,13 @@ String jt1, jt2;
 
     private void jpPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpPassKeyTyped
         // TODO add your handling code here:
+        if(evt.getKeyChar() == KeyEvent.VK_SPACE){
+            evt.consume();
+        }
+             if(Character.isUpperCase(evt.getKeyChar())){
+                mayuscula++;
+             }
+        
     }//GEN-LAST:event_jpPassKeyTyped
 
     /**
