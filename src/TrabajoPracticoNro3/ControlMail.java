@@ -1,5 +1,4 @@
-
-package ejemplodiseño;
+package TrabajoPracticoN3;
 
 public class ControlMail {
       

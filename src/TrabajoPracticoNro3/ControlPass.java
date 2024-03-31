@@ -1,5 +1,5 @@
 
-package ejemplodiseño;
+package TrabajoPracticoN3;
 
 /**
  *

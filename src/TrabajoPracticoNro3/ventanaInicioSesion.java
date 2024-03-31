@@ -1,4 +1,4 @@
-package ejemplodiseño;
+package TrabajoPracticoN3;
 
 import javax.swing.JOptionPane;
 
