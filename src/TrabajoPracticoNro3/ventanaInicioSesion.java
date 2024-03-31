@@ -2,6 +2,7 @@ package TrabajoPracticoNro3;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 public class ventanaInicioSesion extends javax.swing.JFrame {
 String jt1, jt2;
@@ -271,6 +272,7 @@ int mayuscula = 0, charEsp = 0;
             jt1 = jtCorreo.getText();
             jt2 = jpPass.getText();
             ControlMail control1 = new ControlMail();
+            ValidarPass validarPass1 = new ValidarPass();
             if(jt1.equals("")|| jt1.equals("ejemplo@ejemplo.com")||jt2.equals("")||jt2.equals("**********")){
                 JOptionPane.showMessageDialog(this, "*** Error: 'Usuario y/o Contraseña' vacios ***");
                 jtCorreo.setText("");
@@ -281,13 +283,12 @@ int mayuscula = 0, charEsp = 0;
                  }else{
                       JOptionPane.showMessageDialog(this, "*** Error: 'Correo incorrecto ***");
                  }
+                 if(validarPass1.validar(mayuscula)){
+                    JOptionPane.showMessageDialog(this, "La contraseña ingresada es Correcta!!!");
+                }else{
+                    JOptionPane.showMessageDialog(this, "La contraseña ingresada debe tener al menos:\n1 Mayuscula\n1 Caracter Especial '@ # / * . - _'\n1 número  ");
+                }
             }        
-            ValidarPass validarPass1 = new ValidarPass();
-            if(validarPass1.validar(mayuscula)){
-                JOptionPane.showMessageDialog(this, "La contraseña ingresada es Correcta!!!");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error La contraseña ingresada debe tener 1 Mayuscula ");
-            }
     }//GEN-LAST:event_jbVerificarActionPerformed
 
     private void jtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCorreoKeyTyped
